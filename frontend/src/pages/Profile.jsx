@@ -57,7 +57,7 @@ const Profile = () => {
     formdata.append("upload_preset", "ins53knr");
     formdata.append("cloud_name", "dkpk4mqqg");
     axios
-      .post("https://api.cloudinary.com/v1_1/`&{cloudinary_id}`/image/upload", formdata)
+      .post(process.env.CLOUDINARY_PROFILE, formdata)
       .then((res) => {
         localStorage.setItem("userImage", res.data.url);
         dispatch(
