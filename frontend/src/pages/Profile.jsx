@@ -57,7 +57,7 @@ const Profile = () => {
     formdata.append("upload_preset", "ins53knr");
     formdata.append("cloud_name", "dkpk4mqqg");
     axios
-      .post(process.env.CLOUDINARY_PROFILE, formdata)
+      .post(process.env.REACT_APP_CLOUDINARY_PROFILE, formdata)
       .then((res) => {
         localStorage.setItem("userImage", res.data.url);
         dispatch(

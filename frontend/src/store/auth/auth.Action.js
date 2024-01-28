@@ -10,15 +10,16 @@ import {
   REGISTER_USER_SUCCESS,
 } from './auth_Type';
 
-const baseurl = "http://localhost:8080/user";
+const baseurl =`${process.env.REACT_APP_BASE_URL}/user`;
 
 export const registerUser = (form, toast) => async (dispatch) => {
   try {
     const res = await axios.post(`${baseurl}/signup`, form);
-
+       console.log(baseurl)
     dispatch({ type: REGISTER_USER_SUCCESS });
     notify(toast, 'User Registered successfully', 'success');
   } catch (error) {
+   
     console.error('Error', error);
     notify(toast, 'Signup failed', 'error');
   }
@@ -28,17 +29,19 @@ export const userLogin = (form, toast) => async (dispatch) => {
   
   try {
     const res = await axios.post(`${baseurl}/login`, form);
-    
+ 
     if (res.data.message === 'User logedin successfully') {
       notify(toast, 'User logged in successfully', 'success');
       dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data.data });
    //   localStorage.setItem("token", JSON.stringify(res.data.token))
     } else {
+   
       console.error('Error', res);
       notify(toast, 'Login failed', 'error', 'Please check your email and password');
       dispatch({ type: LOGIN_USER_FAIL });
     }
   } catch (error) {
+    console.log("Dd",baseurl)
     console.error('Error', error);
     notify(toast, 'Login failed', 'error', 'Please check your email and password');
     dispatch({ type: LOGIN_USER_FAIL });

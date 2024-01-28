@@ -2,7 +2,7 @@ import axios from "axios";
 import { OTP_REQUEST_SENT, OTP_REQUEST_VERIFIED } from "./auth_Type";
 import { notify } from "../../utils";
 
-const baseurl =  `${process.env.BASE_URL}/otp`;
+const baseurl =  `${process.env.REACT_APP_BASE_URL}/otp`;
 
 export const sendOTP = (form, toast) => (dispatch) => {
   console.log("Dddid")

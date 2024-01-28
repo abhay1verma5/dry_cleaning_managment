@@ -8,7 +8,7 @@ import {
 import { createNotification } from "../notification/notAction";
 import { notify } from "../../utils";
 
-const baseurl =`${process.env.BASE_URL}/laundry`;
+const baseurl =`${process.env.REACT_APP_BASE_URL}/laundry`;
 export const getPrice = () => (dispatch) => {
   axios
     .get(`${baseurl}/price`)

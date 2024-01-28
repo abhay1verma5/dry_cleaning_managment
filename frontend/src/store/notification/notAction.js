@@ -8,7 +8,7 @@ import {
 } from "./notType";
 import { notify } from "../../utils";
 
-const baseurl =  `${process.env.BASE_URL}/notification`;
+const baseurl =  `${process.env.REACT_APP_BASE_URL}/notification`;
 
 export const createNotification = (form,toast) => (dispatch) => {
   axios
